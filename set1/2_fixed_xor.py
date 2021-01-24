@@ -47,14 +47,22 @@ def man_xor(a, b):
 #
 
 def main():
-    input_string = bytes.fromhex('1c0111001f010100061a024b53535009181c')
-    key = bytes.fromhex('686974207468652062756c6c277320657965')
     bin_string = '1c0111001f010100061a024b53535009181c'
     bin_key = '686974207468652062756c6c277320657965'
+    input_string = bytes.fromhex(bin_string)
+    key = bytes.fromhex(bin_key)
+ 
     expected_output = "746865206b696420646f6e277420706c6179"
     
-    print(man_xor(bin_string, bin_key))
-    print(bitwise_xor_bytes(input_string,key).hex())
+    if man_xor(bin_string, bin_key) == expected_output:
+        print('Manual method is a success.')
+    else:
+        print('Manul method is a fail.')
+
+    if bitwise_xor_bytes(input_string,key).hex() == expected_output:
+        print('Bitwise XOR is a success.')
+    else:
+        print('Bitwise XOR is a fail.')
 
 if __name__ == '__main__':
     main()
