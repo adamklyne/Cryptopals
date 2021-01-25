@@ -2,7 +2,7 @@
 
 '''
 
-Cryptopals Challenge - Set 1 - Challenge 3: Single XOR
+Cryptopals Challenge - Set 1 - Challenge 3: Single Byte XOR cipher
 
 Author: Adam Klyne
 Date: 23-Jan-21
@@ -21,16 +21,13 @@ def calc_score(message):
         'y': 1.7779, 'z': 0.2722
     }
 
-    output = 0
+    score = 0
     
     for byte in message:
       
-        output+=letter_freq.get(byte, 0)
-      
-    #for i in range(len(xor_message)):
-        
+        score+=letter_freq.get(byte, 0)
 
-    return output
+    return score
 
 
 
@@ -64,7 +61,6 @@ def main():
     
     print('The most likely key is ASCII character: {}\n with a score of: {}\nThe plaintext is: {}'.format(chr(top_char), top_score, top_message))
 
-    
-
+   
 if __name__ == '__main__':
     main()
